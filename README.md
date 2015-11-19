@@ -5,7 +5,7 @@ Let users generate a visual interface so they can interact with their data store
 <!-- ## Introduction -->
 ## Installation
 
-Run `rake install` to install the assets.
+Run `bundle install` to install the ruby gems and then run `npm install` to install the node packages. 
 
 ## Running
 
