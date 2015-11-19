@@ -19,7 +19,7 @@ module.exports = Backbone.View.extend({
   },
 
   home: function(event) {
-    if ('#' + Backbone.history.fragment == this.homeUrl) {
+    if ('/' + Backbone.history.fragment == this.homeUrl) {
       Backbone.history.loadUrl(Backbone.history.fragment);
     }
   },
