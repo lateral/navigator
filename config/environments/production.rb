@@ -73,7 +73,4 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
-
-  # Log to home dir
-  config.paths['log'] = "#{Dir.home}/log/rails_production.log"
 end
