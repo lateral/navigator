@@ -1,20 +1,11 @@
 require 'sinatra/base'
 
 module FakeLateralHelper
-  def lateral_document
-    {
-      id: rand(0...100_000_000_000),
-      text: IO.read(Rails.root.join('spec/fixtures/texts', "#{TEXTS.sample}.txt")),
-      meta: {
-        title: Faker::Lorem.sentence(3),
-        date: Faker::Date.to_s,
-        author: Faker::Name.name,
-        url: Faker::Internet.url
-      },
-      created_at: Faker::Date.to_s,
-      updated_at: Faker::Date.to_s,
-      document_cluster_assignments: []
-    }
+  def init_fake_lateral!
+    fake_lateral = FakeLateral.new(key: 'test')
+    @results = fake_lateral.instance_variable_get(:@instance).instance_variable_get(:@results)
+    @documents = fake_lateral.instance_variable_get(:@instance).instance_variable_get(:@documents)
+    stub_request(:any, /#{API_URL}/).to_rack(fake_lateral)
   end
 end
 
@@ -23,11 +14,10 @@ RSpec.configure do |config|
 end
 
 class FakeLateral < Sinatra::Base
-  # include FakeLateralHelper
   def initialize(hash = {})
     @key = hash[:key]
-    @documents = hash[:documents]
-    @results = hash[:results]
+    @documents = hash[:documents] || 5.times.map { lateral_document }
+    @results = hash[:results] || 5.times.map { lateral_document }
   end
 
   get '/ping/?' do
@@ -69,9 +59,21 @@ class FakeLateral < Sinatra::Base
     { results: results }.to_json
   end
 
-  # def json_response(response_code, file_name)
-  #   content_type :json
-  #   status response_code
-  #   File.open(File.dirname(__FILE__) + '/fixtures/' + file_name, 'rb').read
-  # end
+  private
+
+  def lateral_document
+    {
+      id: rand(0...100_000_000_000),
+      text: IO.read(Rails.root.join('spec/fixtures/texts', "#{TEXTS.sample}.txt")),
+      meta: {
+        title: Faker::Lorem.sentence(3),
+        date: Faker::Time.backward(14).to_s,
+        author: Faker::Name.name,
+        url: Faker::Internet.url
+      },
+      created_at: Faker::Time.backward(14).to_s,
+      updated_at: Faker::Time.backward(14).to_s,
+      document_cluster_assignments: []
+    }
+  end
 end

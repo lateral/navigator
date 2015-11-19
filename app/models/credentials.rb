@@ -21,6 +21,10 @@ class Credentials < ActiveRecord::Base
     super({ except: [:created_at, :updated_at, :id, :key, :updated_at] }.merge(options))
   end
 
+  def basic_auth
+    ActionController::HttpAuthentication::Basic.encode_credentials(username, password)
+  end
+
   private
 
   def set_url_hash

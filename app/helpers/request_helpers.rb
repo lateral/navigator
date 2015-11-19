@@ -1,6 +1,9 @@
 module RequestHelpers
   def authorise!
     creds = Credentials.find_by! url_hash: params[:hash], slug: params[:slug]
+    if creds.password_protected?
+      error! 'Unauthorised', 403 if request.headers['Authorization'] != creds.basic_auth
+    end
     @subscription_key = creds.key
   end
 

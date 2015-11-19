@@ -19,6 +19,11 @@
     <div class="left"><a href="/" class="button">Create navigator</a></div>
     <div class="right">Note: The content in this demo is not in any way affiliated with, or endorsed by Lateral.</div>
   </footer>
+<% if @creds.password_protected? %>
+  <script>
+    var authorizationHeader = '<%= @creds.basic_auth %>';
+  </script>
+<% end %>
   <script src="/app.js"></script>
 </body>
 </html>

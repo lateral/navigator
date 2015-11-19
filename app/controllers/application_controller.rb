@@ -17,14 +17,8 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def not_found
-  #   fail ActionController::RoutingError.new('Not Found'), 'Not Found'
-  # end
-
   def set_creds
     @creds = Credentials.find_by! url_hash: params[:hash], slug: params[:slug]
-  # rescue ActiveRecord::RecordNotFound
-  #   not_found
   end
 
   def authenticate

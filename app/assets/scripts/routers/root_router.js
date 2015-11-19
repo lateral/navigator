@@ -26,6 +26,15 @@ module.exports = Backbone.Router.extend({
   },
 
   initialize: function(options) {
+    // Send auth header with all AJAX requests if authorizationHeader is set
+    if (typeof authorizationHeader !== 'undefined') {
+      $.ajaxPrefilter(function(options) {
+        options.beforeSend = function(xhr) {
+          xhr.setRequestHeader('Authorization', authorizationHeader);
+        };
+      });
+    }
+
     this.loader = new LoaderController(App);
     this.settings = new SettingsController(App);
     this.error = new ErrorController(App);

@@ -2,11 +2,9 @@ require 'rails_helper'
 
 RSpec.describe 'Home page' do
   before(:each) do
-    @results = 5.times.map { lateral_document }
-    @documents = 5.times.map { lateral_document }
-    @documents.last[:meta][:title] = 'It is working just great'
-    fake_lateral = FakeLateral.new(documents: @documents, results: @results, key: 'test')
-    stub_request(:any, /#{API_URL}/).to_rack(fake_lateral)
+    # Mock the Lateral API with valid key of 'test'
+    # Sets @results and @documents instance variables
+    init_fake_lateral!
     @creds = FactoryGirl.create(:credentials, key: 'test', name: 'Max')
   end
 
