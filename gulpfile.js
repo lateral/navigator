@@ -84,8 +84,9 @@ gulp.task('copy', function() {
 // use default task to launch Browsersync and watch JS files
 gulp.task('browserSync', function() {
   browserSync({
-    server: { baseDir: target },
-    open: false
+    open: false,
+    proxy: 'localhost:4000',
+    ui: false
   });
 });
 

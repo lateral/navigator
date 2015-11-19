@@ -3,6 +3,17 @@
 Let users generate a visual interface so they can interact with their data stored in the Lateral API.
 
 <!-- ## Introduction -->
+## Installation
+
+Run `rake install` to install the assets.
+
+## Running
+
+Run `foreman start` to start the rails server and run gulp.
+
+Visit the URL that BrowserSync outuputs in the terminal. This will most likely be `http://localhost:3000`.
+
+## Development
 
 ### Folder structure
 

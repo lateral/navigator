@@ -11,12 +11,7 @@ task install: :environment do
   sh('bundle install')
 end
 
-desc 'Test'
-task test: :environment do
-  sh('rspec --color --fail-fast --tty --format d')
-end
-
-desc 'Install navigator dependencies'
-task run: :environment do
-  sh('foreman start')
+desc 'Run gulp to build the assets'
+task gulp: :environment do
+  sh('gulp build --release')
 end
