@@ -16,8 +16,10 @@
   <footer>
     <a href="https://lateral.io/" target="_blank" class="middle"><img src="/images/logo.png"></a>
     <div class="pjax-loader"></div>
+<% if @creds %>
     <div class="left"><a href="/" class="button">Create navigator</a></div>
     <div class="right">Note: The content in this demo is not in any way affiliated with, or endorsed by Lateral.</div>
+<% end %>
   </footer>
 <% if @creds && @creds.password_protected? %>
   <script>
