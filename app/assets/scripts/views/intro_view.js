@@ -28,7 +28,6 @@ module.exports = Backbone.View.extend({
   scrollLeft: function() {
     var that = this;
     var slider = this.$('.slider');
-    // var height = this.$('.confirmation').height();
     slider.animate({ left: '-100%' });
     setTimeout(function() {
       slider.animate({ height: that.$('.confirmation').height() });
@@ -56,12 +55,12 @@ module.exports = Backbone.View.extend({
         button.html('Navigator created!');
         var url = window.location.href + data.url_hash + '/' + data.slug;
         var urlLink = '<a href="' + url + '" target="_blank">' + url + '</a>';
-        that.$('.confirmation dd.url').html(urlLink);
+        that.$('.confirmation .url span').html(urlLink);
         if (data.password_protected == true) {
-          that.$('.confirmation dd.user').html(data.username);
-          that.$('.confirmation dd.pass').html(data.password);
+          that.$('.confirmation .username span').html(data.username);
+          that.$('.confirmation .password span').html(data.password);
         } else {
-          that.$('.confirmation .user, .confirmation .pass').hide();
+          that.$('.confirmation .username, .confirmation .password').hide();
         }
         that.scrollLeft();
       }).error(function(data) {
