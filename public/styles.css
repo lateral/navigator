@@ -72,11 +72,11 @@ a.button {
   -moz-border-radius: 6px;
   -webkit-border-radius: 6px;
   border-radius: 6px;
-  -moz-transition: opacity 200ms;
-  -o-transition: opacity 200ms;
-  -webkit-transition: opacity 200ms;
-  transition: opacity 200ms;
-  background-color: #2898e5;
+  -moz-transition: background 0.3s;
+  -o-transition: background 0.3s;
+  -webkit-transition: background 0.3s;
+  transition: background 0.3s;
+  background-color: #1d96e8;
   border: 0;
   color: #fff;
   cursor: pointer;
@@ -84,12 +84,12 @@ a.button {
   height: 36px;
   line-height: 36px;
   padding: 0 12px;
+  font-weight: 600;
 }
 input[type="submit"]:hover,
 button[type="submit"]:hover,
 a.button:hover {
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=80);
-  opacity: 0.8;
+  background-color: #37b0ff;
 }
 input[type="submit"].red,
 button[type="submit"].red,
@@ -161,6 +161,15 @@ footer {
     text-align: center;
   }
 }
+footer .left {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  color: #fff;
+  float: left;
+  margin: 12px 0 0 20px;
+  width: 230px;
+}
 footer .middle {
   background-image: url("/images/powered-by-lateral.png");
   background-position: center center;
@@ -231,11 +240,11 @@ footer .right {
   box-sizing: border-box;
   color: #fff;
   float: right;
+  text-align: right;
   font-size: 12px;
-  font-style: italic;
-  font-weight: 300;
+  font-weight: bold;
   line-height: 16px;
-  margin: 10px 30px 0;
+  margin: 10px 24px 0;
   padding-top: 4px;
   width: 230px;
 }
@@ -283,38 +292,10 @@ header h1, header h2 {
   display: block;
 }
 header a {
-  -moz-border-radius: 7px;
-  -webkit-border-radius: 7px;
-  border-radius: 7px;
-  -moz-transition: background 0.2s;
-  -o-transition: background 0.2s;
-  -webkit-transition: background 0.2s;
-  transition: background 0.2s;
-  background-color: #3178c0;
-  color: #fff;
-  display: block;
-  font-size: 14px;
-  font-weight: 400;
-  margin: 20px 0 0 20px;
-  padding: 4px 10px;
-  position: absolute;
-  text-decoration: none;
-  top: 0;
   left: 0;
-}
-header a:hover {
-  -moz-transition: background 0.2s;
-  -o-transition: background 0.2s;
-  -webkit-transition: background 0.2s;
-  transition: background 0.2s;
-  background-color: #1d96e8;
-  filter: progid:DXImageTransform.Microsoft.Alpha(enabled=false);
-  opacity: 1;
-}
-header a i {
-  font-size: 16px;
-  font-weight: 600;
-  padding-right: 5px;
+  margin: 20px 0 0 20px;
+  position: absolute;
+  top: 0;
 }
 header #heading-search, header #heading-related {
   display: none;
@@ -691,7 +672,7 @@ header p {
   color: #565656;
   line-height: 24px;
   text-transform: uppercase;
-  border-bottom: 4px solid #2898e5;
+  border-bottom: 4px solid #1d96e8;
   margin-bottom: 25px;
 }
 .intro.wrapper .meta {

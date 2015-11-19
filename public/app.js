@@ -16930,12 +16930,14 @@
 
 	  index: function() {
 	    App.header.reset();
+	    $('footer .left').hide();
 	    App.contents.show(new IntroView());
 	  },
 
 	  navigator: function(hash, slug) {
 	    window.hash = hash;
 	    window.slug = slug;
+	    $('footer .left').show();
 	    App.header.show(new HeaderView({ home: true }));
 	    var documents = new RandomDocumentsCollection([], { count: 5 });
 	    documents.fetch();
@@ -16945,6 +16947,7 @@
 	  results: function(hash, slug, id) {
 	    window.hash = hash;
 	    window.slug = slug;
+	    $('footer .left').show();
 	    App.header.show(new HeaderView({ results: true }));
 	    var doc = new DocumentModel({ id: id });
 	    doc.fetch();
@@ -17092,7 +17095,7 @@
 
 	var Handlebars = __webpack_require__(10);
 	module.exports = (Handlebars["default"] || Handlebars).template({"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
-	    return "<img src=\"/images/navigator-logo.png\" alt=\"Lateral Navigator\" id=\"navigator-logo\">\n\n<p class=\"intro-message\">Here you can <strong>generate a visual interface</strong> to interact with the data stored in your <a href=\"https://lateral.io/\">Lateral API key</a>. Simply enter your key and a name for your navigator below:</p>\n\n<p class=\"confirmation-message\"><span class=\"success\">Navigator successfully created!</span><br/>Below is an overview with all the details. Make sure to keep a record of it!</p>\n\n<form>\n  <div class=\"errors\"></div>\n  <div class=\"slider\">\n    <div class=\"form\">\n      <div class=\"wrapper\">\n        <input type=\"text\" id=\"key\" placeholder=\"Your API Key\">\n        <input type=\"text\" id=\"name\" placeholder=\"Name (will appear in the URL)\">\n        <input type=\"checkbox\" id=\"password_protected\" name=\"method\" value=\"password_protected\"><label for=\"password_protected\">Password protected</label>\n        <div class=\"authentication\">\n          <input type=\"text\" id=\"username\" placeholder=\"Username\">\n          <input type=\"password\" disabled=\"disabled\" id=\"password\" placeholder=\"Password will be generated\">\n        </div>\n\n        <a class=\"button\" id=\"create\">Create navigator</a>\n      </div>\n    </div>\n    <div class=\"confirmation\">\n      <dl>\n        <dt class=\"url\">URL:</dt><dd class=\"url\"></dd>\n        <dt class=\"user\">Username:</dt><dd class=\"user\"></dd>\n        <dt class=\"pass\">Password:</dt><dd class=\"pass\"></dd>\n      </dl>\n    </div>\n  </div>\n</form>\n\n<div class=\"meta\">\n  <p class=\"center\">View an example navigator: <a href=\"#\">with images</a> or <a href=\"#\">without images</a></p>\n\n  <hr>\n\n  <div class=\"center\">\n    <h3>Meta</h3>\n  </div>\n\n  <p>The following meta fields are available: <strong>image, title, date, author, url</strong></p>\n  <p>Visual example:</p>\n\n  <img src=\"/images/meta-preview.png\" alt=\"Meta visual preview\">\n\n  <p>Need help? Feel free to <a href=\"#\">live chat</a> with us or <a href=\"mailto:hello@lateral.io\">send us an email</a> at any time.</p>\n</div>\n";
+	    return "<img src=\"/images/navigator-logo.png\" alt=\"Lateral Navigator\" id=\"navigator-logo\">\n\n<p class=\"intro-message\">Here you can <strong>generate a visual interface</strong> to interact with the data stored in your <a href=\"https://lateral.io/\">Lateral API key</a>. Simply enter your key and a name for your navigator below:</p>\n\n<p class=\"confirmation-message\"><span class=\"success\">Navigator successfully created!</span><br/>Below is an overview with all the details. Make sure to keep a record of it!</p>\n\n<form>\n  <div class=\"errors\"></div>\n  <div class=\"slider\">\n    <div class=\"form\">\n      <div class=\"wrapper\">\n        <input type=\"text\" id=\"key\" placeholder=\"Your API Key\">\n        <input type=\"text\" id=\"name\" placeholder=\"Name (will appear in the URL)\">\n        <input type=\"checkbox\" id=\"password_protected\" name=\"method\" value=\"password_protected\"><label for=\"password_protected\">Password protected</label>\n        <div class=\"authentication\">\n          <input type=\"text\" id=\"username\" placeholder=\"Username\">\n          <input type=\"password\" disabled=\"disabled\" id=\"password\" placeholder=\"Password will be generated\">\n        </div>\n\n        <a class=\"button\" id=\"create\">Create navigator</a>\n      </div>\n    </div>\n    <div class=\"confirmation\">\n      <dl>\n        <dt class=\"url\">URL:</dt><dd class=\"url\"></dd>\n        <dt class=\"user\">Username:</dt><dd class=\"user\"></dd>\n        <dt class=\"pass\">Password:</dt><dd class=\"pass\"></dd>\n      </dl>\n    </div>\n  </div>\n</form>\n\n<div class=\"meta\">\n  <p class=\"center\">View an example navigator: <a href=\"https://navigator.lateral.io/bdf60397/fast-company\" target=\"_blank\">with images</a> or <a href=\"https://navigator.lateral.io/0242637a/mckinsey\" target=\"_blank\">without images</a></p>\n\n  <hr>\n\n  <div class=\"center\">\n    <h3>Meta</h3>\n  </div>\n\n  <p>The following meta fields are available: <strong>image, title, date, author, url</strong></p>\n  <p>Visual example:</p>\n\n  <img src=\"/images/meta-preview.png\" alt=\"Meta visual preview\">\n\n  <p>Need help? Feel free to <a href=\"mailto:hello@lateral.io\">send us an email</a> at any time.</p>\n</div>\n";
 	},"useData":true});
 
 /***/ },
@@ -30452,7 +30455,7 @@
 
 	  return "  <a href=\""
 	    + container.escapeExpression(((helper = (helper = helpers.home_url || (depth0 != null ? depth0.home_url : depth0)) != null ? helper : helpers.helperMissing),(typeof helper === "function" ? helper.call(depth0 != null ? depth0 : {},{"name":"home_url","hash":{},"data":data}) : helper)))
-	    + "\" class=\"route\">Home</a>\n";
+	    + "\" class=\"button route\">Home</a>\n";
 	},"compiler":[7,">= 4.0.0"],"main":function(container,depth0,helpers,partials,data) {
 	    var stack1;
 

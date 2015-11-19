@@ -34,12 +34,14 @@ module.exports = Backbone.Router.extend({
 
   index: function() {
     App.header.reset();
+    $('footer .left').hide();
     App.contents.show(new IntroView());
   },
 
   navigator: function(hash, slug) {
     window.hash = hash;
     window.slug = slug;
+    $('footer .left').show();
     App.header.show(new HeaderView({ home: true }));
     var documents = new RandomDocumentsCollection([], { count: 5 });
     documents.fetch();
@@ -49,6 +51,7 @@ module.exports = Backbone.Router.extend({
   results: function(hash, slug, id) {
     window.hash = hash;
     window.slug = slug;
+    $('footer .left').show();
     App.header.show(new HeaderView({ results: true }));
     var doc = new DocumentModel({ id: id });
     doc.fetch();

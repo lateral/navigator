@@ -3,7 +3,7 @@ button[type="submit"],
 a.button {
   -webkit-appearance: none;
   @include border-radius(6px);
-  @include hover-opacity(.8);
+  @include transition(background .3s);
   background-color: $blue;
   border: 0;
   color: #fff;
@@ -12,6 +12,11 @@ a.button {
   height: 36px;
   line-height: 36px;
   padding: 0 12px;
+  font-weight: 600;
+
+  &:hover {
+    background-color: $blue-hover;
+  }
 
   &.red {
     background-color: #fa3b52;
