@@ -19,3 +19,6 @@ newrelic.yml
 # Ignore front-end
 .sass-cache
 node_modules
+
+# Deployment
+bin/deploy
