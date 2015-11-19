@@ -1,0 +1,27 @@
+The Supreme Court issued a ruling Tuesday that will have a significant impact on the patent system by limiting the ability of the Federal Circuit, a specialized court that hears patent appeals, to review key findings by lower court judges.
+
+The 7-2 patent decision, which came the same day as a high profile ruling by the Supreme Court on prisoner beards, concerns an esoteric dispute between two pharmaceutical companies, Teva and Sandoz, over the right way to describe the molecule weight of a multiple sclerosis drug.
+
+The Justices of the Supreme Court, however, appears to have taken the case in part because it presented another opportunity to check the power of the Federal Circuit, which has been subject to a recent series of 9-0 reversals and which some regard as a “rogue court” responsible for distorting the U.S. patent system.
+
+As for the legal decision on Tuesday, it turned on the question of whether the Federal Circuit judges can review patent claim findings as they please (“de novo”) or only in cases where they has been serious error. Writing for the majority, Justice Stephen Breyer concluded that the Federal Circuit could not second guess how lower courts interpret those claims (a process called “claim construction”) except on rare occasions.
+
+Since claim construction is an important first step in deciding whether a patent has been infringed, this means that federal district judges throughout the country — rather than the Washington, D.C.-based appeals court judges — will have the final say in far more patent cases:
+
+Whoah. Huge ruling in Teva. De novo review of claims construction is gone. Review of factual determinations is for clear error. — Sean M. Flaim (@SeanFlaim) January 20, 2015
+
+That's going to have a significant impact on Federal Circuit agreement rates with the various district courts. — Sean M. Flaim (@SeanFlaim) January 20, 2015
+
+The ruling may also have implications for the tech industry, which has been frustrated by the Federal Circuit’s willingness to disregard the findings of highly respected jurists, such as Justice Richard Posner’s interpretation of “tap” and “swipe,” and Justice Alex Kozinski’s interpretation of navigation and Google Street View.
+
+(Update: As Brian in the comments points out, Google and other tech companies submitted a friend-of-the-court brief in favor of preserving the Federal Circuit’s de novo review power. And on Twitter, some have suggested — here and here — that the ruling could benefit patent holders).
+
+For the Federal Circuit, the ruling is another blow to its prestige and authority following an ethics scandal that last year led to the resignation of its Chief Justice.
+
+Overall, the Supreme Court ruling also comes at a time when all three branches of government appear to be skeptical about the current state of the patent system. This includes Congress, which is expected to propose a law next month to reform abuses by patent trolls.
+
+For those curious about the details of Tuesday’s decision, I’ve pasted a couple key paragraphs below (emphasis mine). The full majority opinion, from which Justices Thomas and Alito dissented, is further down.
+
+Indeed, we referred to claim construction as a practice with “evidentiary underpinnings,” a practice that “falls somewhere between a pristine legal standard and a simple historical fact.” 517 U. S., at 378, 388, 390. We added that sometimes courts may have to make “credibility judgments” about witnesses. Id., at 389. In other words, we recognized that courts may have to resolve subsidiary factual disputes. […] Finally, practical considerations favor clear error review. We have previously pointed out that clear error review is “particularly” important where patent law is at issue because patent law is “a field where so much depends upon familiarity with specific scientific problems and principles not usually contained in the general storehouse of knowledge and experience.” Graver Tank & Mfg. Co. v. Linde Air Products Co., 339 U. S. 605, 610 (1950). A district court judge who has presided over, and listened to, the entirety of a proceeding has a comparatively greater opportunity to gain that familiarity than an appeals court judge who must read a written transcript or perhaps just those portions to which the parties have referred. Cf. Lighting Ballast, 744 F. 3d, at 1311 (O’Malley, J., dissenting) (Federal Circuit judges “lack the tools that district courts have available to resolve factual disputes fairly and accurately,” such as questioning the experts, examining the invention in operation, or appointing a court-appointed expert)
+
+Teva v Sandoz Fed Circuit Smackdown

@@ -1,0 +1,13 @@
+January 19 is an important day. Not only because it’s the date that Thomas Edison’s first overhead electric lighting system to use wires was switched on in New Jersey, and not only because it’s the date that the first Tour de France race was announced, back in 1903.
+
+But did you know that January 19, 2038 will be a day of news too? How do we know? There’s another Y2K-like integer bug known as ‘the Year 2038 problem‘ that looks set to cause havoc with your computer’s clock.
+
+However, rather than pondering news 23 years in the future, perhaps it’d be better to catch up on everything you missed over the weekend first. So make yourself a coffee, mute your phone and spend 10 minutes catching up on everything you missed.
+
+News from The Next Web
+
+Good reads
+
+From beyond The Next Web
+
+So, there you have it, the biggest news and features from the last two days. Of course, if you fear missing out in the future, you can always subscribe to our individually crafted newsletters or Like our Facebook Page to stay in touch. And remember to put January 19, 2038 in your diaries, eh.

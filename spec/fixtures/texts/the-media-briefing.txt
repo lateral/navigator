@@ -1,0 +1,63 @@
+2014 saw the emergence of a rare consensus among media industry leaders about the need for better ways of measuring how people are interacting with content, both editorial and advertising.
+
+This week, Twitter and Medium co-founder Ev Williams weighed in to the debate, arguing that the established ways of measuring the success of a piece of content, site or platform are a poor way of assessing how people are engaging with an article, video or any material published online.
+
+Metrics such as unique users and click-throughs are treated as industry standards, despite providing an incomplete picture which leads to perverse incentives for publishers and advertisers alike.
+
+And Williams goes further in arguing that a focus on any single metric is going to produce a one-dimensional view of a very 3D phenomenon - the value of something on the web to the real people who are consuming it.
+
+But while the inadequacies of the system are clear to most, the solutions remain elusive. That's in part because both the ad and publishing sides of the industry face barriers hindering their ability and desire to come up with more nuanced and multifaceted measures, such as:
+
+Complexity
+
+The clear appeal of assessing the impact of a site or piece of content using a metric like unique users is that it is simple. A single indicator of success provides a benchmark against which you can assess performance.
+
+That's why shareholders and markets obsess over the unique user figures of big platforms such as Twitter, and why newspapers trumpet their monthly uniques as examples of their growing influence.
+
+Quantifying the differences between each user or even each visit to a site is possible - we can look at returning users, articles per user, time per visit, time on each article. But the nuances will largely get lost in a press release or investor presentation.
+
+Another problem crops up when thinking about how to use metrics, highlighted by a quote Williams uses from BuzzFeed CEO and founder Jonah Peretti:
+
+"I feel like what you see in the industry now is people jumping around and trying to find the God metric for content. It’s all about shares or it’s all about time spent or it’s all about pages or it’s all about uniques. The problem is you can only optimize one thing and you have to pick, otherwise all you’re doing is making a bunch of compromises if you try to optimize for multiple things."
+
+Inertia
+
+Another big problem that is especially challenging for online publishers trying to make money from advertising is the inertia - both human and technological - of the established metrics.
+
+It was a big enough leap for the ad industry to move from print circulation to digital measures, but agencies and ad buyers have now got used to dealing in click-throughs and impressions. And the automated trading platforms that deliver huge audiences at scale are almost entirely built around those measures.
+
+The problem is summed up by Tom Rouse, creative and editorial planner at HotWire PR (who I got into a discussion with about the topic on Twitter):
+
+"Advertising and digital agencies have by and large built their online offering around selling banner space through cost-per-click model. As a result, they don't have the skills or appetite to work with brands on expanding online presence in the way media organisations do into events, membership schemes and the like."
+
+It's a model the ad industry has spent time and money developing, and there isn't a hell of a lot of incentive to change as long as brands are still prepared to pay those agencies to spend their money.
+
+Proof
+
+The click-through-rate has become the go-to online metric for advertising for one good reason, at least. It gives you a solid measurement of a consumer actually doing something in response to an ad (assuming of course, they mean to click on it, or are even a real person rather than a bot).
+
+In fact, it's a far more accurate measurement of action than pretty much anything available in the real world, where working out whether someone has bought something because they saw an ad is normally an educated guess at best.
+
+But how do you link total time reading to a sale? How do you decide whether a social share meant someone went out and brought the product advertised on a page?
+
+That's a big problem, because click-through rates can't reflect the impact of brand advertising that is designed to lead to someone forming an association with a brand and make them more likely to make a later (and hopefully regular) purchase.
+
+Currency
+
+Linked to both issues of complexity and momentum is the need for an online ad currency accepted by both publishers and advertisers. Click-throughs and impressions have filled this role online because they have been accepted across the industry.
+
+The Financial Times' experiment with selling advertisers blocks of time in front of an audience - dubbed "attention minutes" - is aimed at creating a new currency.
+
+But even getting advertisers to agree to use that new single metric is going to take a lot of work. How do you get everyone to agree on something that tries to go beyond a one-dimensional view?
+
+Missing impact
+
+Even if the industry finds a way to overcome these barriers and agree on a package of metrics that provide a more nuanced assessment of how people are interacting with ad and editorial content, it doesn't solve an even more fundamental problem that Williams raises as one of the big flaws in the total time reading metric:
+
+"The problem with time, though, is it’s not actually measuring value. It’s measuring cost as a proxy for value. "Advertisers don’t really want your time — they want to make an impression on your mind, consciously or subconsciously (and, ultimately, your money). "As the writer of this piece, I don’t really want your time — I want to make an impression on how you think. If my rhetorical skills let me do that in less time (for me and you), all the better."
+
+The problem with pretty much all the online metrics we use now, even the more promising forays into areas such as attention, is they are trying to assess something very difficult to measure - the impact on users and thus the value for publishers and advertisers - by looking at things that that are only assumed to lead to the desired outcome. We're relying on them simply because we can measure them.
+
+It may never be possible to measure impact directly, but we need some way to assess the value of what we are doing. That means we're going to have to make do with our indirect indicators.
+
+Some will be better than others, but most combinations are going to be better than any one measure. Unfortunately, getting media businesses and advertisers to explore and then agree on what combination should be used to judge success and value ads is going to be a huge challenge.

@@ -1,0 +1,24 @@
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/**/*
+    - vendor/**/*
+    - bin/**/*
+    - lib/rack/*
+
+LineLength:
+  Max: 120
+
+RescueModifier:
+  Enabled: false
+
+AndOr:
+  Enabled: false
+
+ClassAndModuleChildren:
+  Enabled: false
+
+Metrics/MethodLength:
+  Max: 15

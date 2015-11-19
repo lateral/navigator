@@ -1,0 +1,229 @@
+.intro.wrapper {
+  max-width: 700px;
+  width: 95%;
+  text-align: center;
+  margin-bottom: 120px;
+
+  .center {
+    text-align: center;
+  }
+
+  #navigator-logo {
+    display: block;
+    width: 240px;
+    height: auto;
+    margin: 60px auto 45px;
+  }
+
+  strong {
+    font-weight: 700;
+  }
+
+  a {
+    color: #2898e5;
+    font-weight: 700;
+  }
+
+  p {
+    color: #565656;
+    font-family: Lato-Regular;
+    font-size: 16px;
+    line-height: 26px;
+    margin-bottom: 35px;
+
+    .success {
+      color: #01c57e;
+      font-weight: 700;
+    }
+
+    &.confirmation-message { display: none; }
+  }
+
+  form {
+    background-color: #f9f9f9;
+    margin-bottom: 30px;
+    padding: 40px 0;
+    position: relative;
+    overflow: hidden;
+
+    .slider {
+      position: relative;
+      width: 200%;
+      overflow: hidden;
+    }
+
+    .form,
+    .confirmation {
+      position: relative;
+      float: left;
+      width: 50%;
+
+      .wrapper {
+        margin: auto;
+        max-width: 400px;
+        width: 100%;
+      }
+    }
+
+    .confirmation {
+      padding-left: 40px;
+    }
+
+    .errors {
+      display: none;
+      @include trbl(0, 0, false, 0);
+      position: absolute;
+      background-color: #fd5151;
+      font-size: 16px;
+      color: #fff;
+      font-weight: 500;
+      height: 30px;
+      line-height: 30px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+  }
+
+  [type="text"],
+  [type="password"] {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #333;
+    font-size: 16px;
+    height: 38px;
+    line-height: 19px;
+    margin: 0 auto 10px;
+    padding: 0 12px;
+    width: 100%;
+    overflow: visible;
+
+    @include placeholder {
+      color: #979797;
+    }
+
+    &.error {
+      border-color: #fd5151;
+    }
+
+    &:focus {
+      border-color: #9e9e9e;
+      outline: none;
+      border: 1px solid #1d96e8;
+    }
+  }
+
+  [type="checkbox"] {
+    @extend %visuallyhidden;
+
+    + label {
+      color: #565656;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 20px;
+      margin-top: 10px;
+      padding-left: 30px;
+      position: relative;
+      display: block;
+      margin-bottom: 10px;
+      text-align: left;
+
+      &:before {
+        background: #fff;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        content: ' ';
+        display: block;
+        height: 20px;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 20px;
+      }
+
+      &:hover:before {
+        border: 1px solid #1d96e8;
+      }
+    }
+
+    &:checked + label:before {
+      background-image: url('/images/tick.png');
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-size: 12px 10px;
+      border: 1px solid #1d96e8;
+    }
+
+    &:focus + label:before {
+      border: 1px solid #1d96e8;
+    }
+  }
+
+  #password {
+    background-color: #f9f9f9;
+  }
+
+  .authentication {
+    display: none;
+    margin-top: 20px;
+  }
+
+  .button {
+    color: #fff;
+    margin-top: 20px;
+  }
+
+  hr {
+    border: 0;
+    border-top: 1px solid #e1e1e1;
+    margin-bottom: 35px;
+    max-width: 500px;
+    width: 80%;
+  }
+
+  h3 {
+    font-weight: 700;
+    font-size: 20px;
+    display: inline-block;
+    padding-bottom: 2px;
+    color: #565656;
+    line-height: 24px;
+    text-transform: uppercase;
+    border-bottom: 4px solid $blue;
+    margin-bottom: 25px;
+  }
+
+  .meta {
+    text-align: left;
+
+    p {
+      margin-bottom: 20px;
+    }
+
+    img {
+      width: 100%;
+      margin-bottom: 30px;
+    }
+  }
+
+  dl {
+    font-size: 16px;
+
+    dt, dd {
+      float: left;
+      padding: 15px;
+      color: #565656;
+    }
+
+    dt {
+      width: 100px;
+      font-weight: 600;
+      clear: left;
+      text-align: right;
+    }
+
+    dd {
+      text-align: left;
+      font-weight: 400;
+    }
+  }
+}

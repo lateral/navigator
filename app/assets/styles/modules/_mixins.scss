@@ -1,0 +1,64 @@
+@mixin trbl($top:false, $right:false, $bottom:false, $left:false) {
+  @if $top    {    top: $top;    }
+  @if $right  {  right: $right;  }
+  @if $bottom { bottom: $bottom; }
+  @if $left   {   left: $left;   }
+}
+
+@mixin tl($top:false, $left:false) {
+  @if $top    {  top: $top;  }
+  @if $left   { left: $left; }
+}
+
+@mixin hover-opacity($opacity: .6, $time: 200ms) {
+  @include transition(opacity $time);
+
+  &:hover {
+    @include opacity($opacity);
+  }
+}
+
+@mixin line-clamp($max-lines: 2, $line-height: 1.5) {
+  position: relative;
+  overflow: hidden;
+  max-height: $max-lines * $line-height * 1em;
+}
+
+@mixin optional-at-root($sel) {
+  @at-root #{if(not &, $sel, selector-append(&, $sel))} { @content; }
+}
+
+@mixin placeholder {
+  @include optional-at-root('::-webkit-input-placeholder') { @content; }
+  @include optional-at-root(':-moz-placeholder') { @content; }
+  @include optional-at-root('::-moz-placeholder') { @content; }
+  @include optional-at-root(':-ms-input-placeholder') { @content; }
+}
+
+@mixin break($break) {
+  @media (max-width: $break) { @content; }
+}
+
+@mixin retina {
+  @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) { @content; }
+}
+
+@mixin image-bg($img, $w, $h) {
+  background-image: image-url($img);
+  background-repeat: no-repeat;
+  background-size: $w $h;
+  width: $w;
+  height: $h;
+  display: block;
+}
+
+%visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}

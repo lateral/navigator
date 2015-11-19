@@ -1,0 +1,13 @@
+The Gotham Gal moved from an old macbook air to a new one about a year ago. When she moved all of her files, configurations, and settings from the old macbook to the new one, somehow her iPhoto folders didn’t come over correctly. She was missing a bunch of photos on her new laptop and could not seem to find them on the old one.
+
+I tried to help out but quickly got frustrated. Somehow she had messed things up in her moves from mac to mac to mac over the years and she had not backed up her iPhoto properly.
+
+She told me that there were years, maybe a decade or more, of photos of our family and such on that laptop and that she feared they were lost.
+
+So last week I decided to take another shot at it, using a Dropbox feature that scans your iPhoto library and backs up all the photos in it to Dropbox. I installed the Dropbox for Mac client on her old machine and let it do its thing. It eventually prompted me with the option to backup all of her iPhoto library to her Dropbox. I clicked yes and it started scanning and scanning and scanning. It must have been crunching away on her hard drive for an hour or more and eventually it said it had found over 14,000 photos that it wanted to upload.
+
+I thought “14,000!!, that must be all of her lost photos” and went upstairs to tell her the good news. It took over a day to upload all of the photos and it seems that Dropbox found some old buried folders that I could not find myself that contained all that she had thought had been lost.
+
+We haven’t taken a deep dive yet on the 14,000+ photos to see if they include everything she thought was lost. But I have a strong hunch that we have.
+
+It’s a great ending to a frustrating story. If you had a fire in your house and you had to choose the few things you wanted to get out before everything went up in flames, family photos would likely be near the top of the list, after people and pets. So losing them, or thinking you lost them, is a terrible feeling. And finding them is an amazing one.

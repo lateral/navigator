@@ -1,0 +1,62 @@
+input[type="submit"],
+button[type="submit"],
+a.button {
+  -webkit-appearance: none;
+  @include border-radius(6px);
+  @include hover-opacity(.8);
+  background-color: $blue;
+  border: 0;
+  color: #fff;
+  cursor: pointer;
+  font-size: em(18px);
+  height: 36px;
+  line-height: 36px;
+  padding: 0 12px;
+
+  &.red {
+    background-color: #fa3b52;
+  }
+
+  &:focus {
+    outline: none;
+    // @include opacity(.8);
+  }
+
+  &.disabled {
+    @include opacity(.6);
+    cursor: default;
+  }
+
+  &.loading {
+    background-image: image-url('loader-blue-bg.gif');
+    background-position: center right 10px;
+    background-repeat: no-repeat;
+    background-size: auto 60%;
+    padding-right: 40px;
+  }
+
+  &.success {
+    background-color: #50e3c2;
+    background-image: image-url('icon-check.png');
+    background-position: center right 10px;
+    background-repeat: no-repeat;
+    background-size: 16px auto;
+    cursor: default;
+    padding-right: 40px;
+    text-align: left;
+
+    &:hover {
+      @include opacity(1);
+      // background-color: #00A5FA;
+    }
+  }
+}
+
+a.button {
+  display: inline-block;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: none;
+  }
+}

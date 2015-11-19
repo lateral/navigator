@@ -1,0 +1,55 @@
+Regulators have known since at least 2009 that medical devices at the center of the outbreak at UCLA can transmit lethal infections but have not recommended new safety requirements
+
+Regulators have known since at least 2009 that medical devices at the center of the outbreak at UCLA can transmit lethal infections but have not recommended new safety requirements
+
+By Sharon Begley and Toni Clarke
+
+NEW YORK, Feb 19 (Reuters) - U.S. health regulators have known since at least 2009 that the medical devices at the center of the "superbug" outbreak at UCLA can transmit lethal infections but have not recommended any new safety requirements, a lapse that threatens patient safety, experts in hospital-acquired infections said.
+
+The latest outbreak involving the reusable devices called duodenoscopes, which are inserted down the throat, may have exposed 179 patients at UCLA's Ronald Reagan Medical Center in Los Angeles and contributed to two deaths.
+
+It is far from the first time medical investigators traced the sometimes-fatal spread of pathogens to the devices, which are manufactured by the medical units of Japanese companies Olympus Corp, Pentax and Fujifilm Holdings Corp . UCLA uses an Olympus model.
+
+In 2013 and 2014, the U.S. Food and Drug Administration received a total of 75 reports of adverse events associated with the devices, resulting in harm to 135 patients, the agency said. Because healthcare providers do not always submit such reports, the FDA said, that is likely an underestimate.
+
+After outbreaks, hospitals that began sterilizing the devices more rigorously than the FDA and manufacturers recommend did so have not had any further transmissions of dangerous microbes from the devices, the hospitals said.
+
+In light of that success, "I would be in favor of the FDA putting out more stringent rules," said Dr. John Greene, an infectious disease specialist at Moffitt Cancer Center in Tampa, Florida, where four patients developed antibiotic-resistant infections after undergoing duodenoscope procedures in 2012.
+
+Instead, the FDA on Thursday issued a "safety communication" warning healthcare providers that duodenoscopes' "complex design" may impede effective sterilization.
+
+For the first time, the FDA said that even when hospitals adhered to the manufacturers' instructions for sterilization, patients have contracted multidrug-resistant bacterial infections from the devices. The agency did not, however, require more stringent safety procedures.
+
+"The FDA punted," said Lawrence Muscarella, a healthcare consultant in Pennsylvania and author of a 2014 paper on superbug transmission via duodenoscopes.
+
+FDA spokeswoman Leslie Wooldridge said the agency is continuing to determine what more can be done to reduce duodenoscope-related outbreaks and is also exploring "additional potential strategies to reduce the risk of infections."
+
+MULTIPLE OUTBREAKS
+
+Duodenoscopes, flexible tubes outfitted with tiny lights and advanced cameras, are used to diagnose or treat disorders of the gastrointestinal tract in about 500,000 procedures a year in the United States alone.
+
+In 2009, soon after 16 patients in France were infected with a pathogen after undergoing the procedure, the FDA issued its first notice about the devices, warning the medical community they could transmit dangerous germs from one patient to another.
+
+In 2013, physicians led by the Moffitt Center's Greene reported that endoscopes had transmitted an antibiotic-resistant pathogen to patients at two Tampa hospitals. That year also saw an outbreak from duodenoscopes at Advocate Lutheran General Hospital near Chicago, where 44 patients were infected with virulent, antibiotic-resistant bacteria called CRE, the strain in the UCLA outbreak.
+
+The University of Pittsburgh Medical Center had a duodenoscope-related outbreak in 2012. Last month, Virginia Mason Medical Center in Seattle said a bacteria spread through contaminated scopes had infected 32 people over two years; 11 died.
+
+Infectious disease experts in academia and government who have investigated ways to prevent outbreaks have identified three options, including sterilizing the devices with ethylene oxide gas after each use.
+
+The Pittsburgh medical center "determined that the normal process" of disinfecting recommended by the manufacturer "failed to eliminate all bacteria," said spokeswoman Allison Hydzik. The hospital switched to ethylene-oxide sterilization.
+
+Alternatively, hospitals could swab duodenoscopes after each use to collect any lurking pathogens and quarantine the devices until it is clear they are sterile. Virginia Mason took this approach.
+
+Neither Virginia Mason nor Pittsburgh has had another case of duodenoscope-transmitted superbug infection.
+
+But such steps are expensive.
+
+Duodenoscopes cost about $40,000 and as much as $80,000, and when they are taken out of service for gassing or quarantining a hospital may need to spend an additional $1 million to have enough available, said Muscarella.
+
+A third option would be for the FDA to require manufacturers to redesign the devices. The agency and researchers agree that the most problematic part is a movable "elevator" mechanism at the tip of the duodenoscope: Its moving parts have microscopic crevices where bodily fluids can lurk after standard cleaning.
+
+Fujifilm spokeswoman Diane Rainey said the company is reviewing the FDA safety alert and is "working in cooperation with the FDA to evaluate and respond to concerns" about disease transmission.
+
+Olympus spokesman Mark Miller said the company is "aware of reports of patient infections following procedures involving duodenoscopes," and is "monitoring this issue closely."
+
+Pentax did not immediately respond to questions. (Reporting by Sharon Begley in New York and Toni Clarke in Washington; Editing by Eric Effron and Cynthia Osterman)

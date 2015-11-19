@@ -1,0 +1,11 @@
+<a href="{{recommendations_url}}" class="route">
+  {{#if image}}<div class="image" style="background-image:url('{{image}}')"></div>{{/if}}
+  {{#if title}}<h4>{{title}}</h4>{{/if}}
+
+  <p class="meta">
+    {{#if date}}{{date}}{{/if}}
+    {{#if author}}by <span class="author">{{author}}</span>{{/if}}
+  </p>
+  <p class="text">{{text}}</p>
+  {{#if url}}<div class="link"><a href="{{url}}" target="_blank">View article</a></div>{{/if}}
+</a>

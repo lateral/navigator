@@ -1,0 +1,10 @@
+<h1>Lateral recommendation navigator</h1>
+<h2 id="search">Here are the results for your search</h2>
+<h2 id="home">Start with a random result below or search to get recommendations</h2>
+<h2 id="results">Here are the related articles that we found!</h2>
+{{#if home_url}}
+  <a href="{{home_url}}" class="route">Home</a>
+{{/if}}
+<div class="search">
+  <input type="text" class="typeahead" placeholder="Search articles">
+</div>

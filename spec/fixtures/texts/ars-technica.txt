@@ -1,0 +1,39 @@
+High-speed cameras produce some of the most fascinating imagery in the world. They reveal hidden details and turn the everyday into the extraordinary. But these cameras, which generally top out at around 100,000 frames per second, have nothing on a camera reported last month in Nature. This beast can manage a massive 100 billion frames per second.
+
+If you want a high frame rate, you generally use stroboscopic imaging. In normal filming, the illumination is always on, and the camera shutter is operated as fast as possible. However, as the frame rate increases, the shutter time reduces and less light falls on the sensor. The result is a noisy image.
+
+In the embedded video, you can see the difference between normal filming and stroboscopic imaging. Stroboscopic imaging builds up an image by pulsing the light source while the camera shutter remains open. Using it, you can capture single images from an event that repeats periodically. The temporal resolution is now given by the duration and timing of the light pulse. Light pulses can be less than a femtosecond (10-15s) in duration, while timing can be controlled with femtosecond precision. This allows stop-motion photography with frame rates of trillions per second.
+
+The key point is that the filmed event must be predictably repeatable, which is why the stroboscopic part of the movie appears noisier: the fluid drop never expands exactly the same way.
+
+There are many events for which high-speed imaging would be desirable, but the event does not repeat in a predictable manner, leaving stroboscopic imaging out. Think of gamma ray bursts, for example, or instabilities in confined plasmas (fusion reactors). The ability to capture details of these and other events would be a huge boon to scientists and engineers in many fields.
+
+There is a compromise available in the form of a streak camera. A streak camera is a very fancy version of an ordinary digital camera. Instead of the whole sensor being used at the same time, only one column of pixels is exposed at a given time. As a result, a single image consists of one spatial dimension and a temporal dimension. That gets you speed, but if you want the full story, such a camera doesn't provide it—the second spatial dimension is lost (or must be regained by a scanning technique, which also requires a repeating event). In this case, the temporal dimension is limited by the speed of the electronics but still clocks in at a very respectable 10 picoseconds (10-12s).
+
+Reversing image compression
+
+However, we've realized in recent years that each pixel contains information about the entire image. By making some assumptions about the image and doing some calculations, it's possible to obtain a 2D image from a single pixel. This technique is called compressive sensing.
+
+To play this game, you have to be able to represent the image by what is known as a sparse matrix. This is kind of complicated. The spatial information in an image can be represented by a set of basis functions (think cosine curves, for instance). The frequency of these cosines are evenly spaced over a range that is determined by both the size of the image and size of the pixel sensor (see here for more detail). Each element of the matrix is the amplitude of a frequency component. This representation will generally not be sparse. Instead, every frequency component will be significant.
+
+But imagine that you have an image that consists of a series of horizontal bars of varying width and spacing. Instead of using cosines, one might use a "bar" function with a set of widths and center positions. Our 2D image is now represented by just one column in the matrix, and most of those values will be zero. If you're lucky, this might be a sparse representation.
+
+When you take this approach, the number of pixels that you use to obtain the image can be drastically reduced. The resolution or detail of the image is reclaimed through a set of calculations. Imagine that you want an image that consists of 256 by 256 pixels but you only have a 16 by 16 sensor. You take many images, and before the light falls on the sensor, you add a slight, well-defined distortion. At this stage, you choose a basis set that will represent each image sparsely—these are 16 by 16 matrices. After that, you expand the matrices to 256 by 256. The new matrices are not sparse, because if one element of the original matrix was non-zero, then a 16 by 16 block of the new matrix is non-zero.
+
+A high-resolution image is created by creating an image that's just a guess at what you're looking at. You then calculate (including the distortion) the pattern it would create on the sensor. The results will be wrong, but you can use the difference between the two to refine the guess. Under the condition that the original and final matrix have the same degree of sparsity, the higher resolution should be a faithful reproduction of the object, but at a far higher resolution than your sensor originally provided.
+
+Bring compressive sensing to streak cameras
+
+By bringing these two technologies together, the researchers have obtained a camera that images entire scenes at 100 billion frames per second. So how does that work?
+
+First, take an ordinary camera lens and use that to collect an image from an object. The collected light is then reflected off a mirror that is not flat. Indeed, this mirror is like a fun-house mirror, but the bends and bumps are on a much smaller scale, and the shape can be changed at will. After reflecting from the mirror, the light is sent to the streak camera, where one spatial dimension is thrown out and replaced with temporal information.
+
+The streak camera is recording a distorted image, but the distortion is defined and can be used to retrieve the original 2D image using compressive sensing.
+
+Normally, a single pixel sensor is used in compressive sensing, and multiple images with different distortions are taken. In this case, though, only a single shot can be taken, so only a single distortion is applied. The image is then reconstructed by using the fact that each pixel in the column gets a slightly different distorted version of the image.
+
+To demonstrate the effectiveness of the imaging technique, the researchers chose to image light in flight—nothing moves faster, right? A laser that emits light pulses with a duration of 7 picoseconds was fired at a mirror through dry ice. The dry ice scatters some of the light from the pulse as it travels. This scattered light was imaged by the system. If you were to look at such a situation with the naked eye—which I have done but don't necessarily recommend—you would simply see a green flash along the entire length of the dry ice column. However, with the researchers' fancy new camera, the image shows a small pocket (video) of light moving through the dry ice, reflecting off the mirror and continuing until it leaves the field of view of the camera. Even cooler, you can see some of the light leaking through the mirror.
+
+Likewise, the researchers showed light refracting as it passed from air to resin, and they visualized two light pulses racing each other: one in air and one in resin (no guesses for which pulse won).
+
+Nature, 2014, DOI: 10.1038/nature14005

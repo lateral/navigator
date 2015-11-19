@@ -1,0 +1,97 @@
+footer {
+  @include clearfix;
+  background: #3178c0;
+  bottom: 0;
+  height: 60px;
+  overflow: visible;
+  position: fixed;
+  width: 100%;
+
+  @include break(800px) {
+    height: auto;
+    position: relative;
+    text-align: center;
+  }
+
+  .middle {
+    background-image: url('/images/powered-by-lateral.png');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 263px auto;
+    height: 60px;
+    left: 50%;
+    margin-left: -131.5px;
+    position: absolute;
+    text-align: center;
+    width: 263px;
+
+    @include break(800px) {
+      display: block;
+      left: auto;
+      margin: 30px auto 10px;
+      min-width: 320px;
+      position: relative;
+      top: auto;
+    }
+
+    img {
+      @include transition(all 2s);
+      height: auto;
+      margin-left: -10px;
+      margin-top: 11px;
+      width: 40px;
+
+      &:hover {
+        @include transition(all 1s);
+        @include transform(rotate(360deg));
+      }
+    }
+  }
+
+  .pjax-loader {
+    background-color: #fff;
+    background-image: url('/images/loader.gif');
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    border-radius: 50%;
+    display: none;
+    height: 30px;
+    left: 50%;
+    margin-left: -20px;
+    position: absolute;
+    text-align: center;
+    top: 15px;
+    width: 30px;
+
+    @include break(800px) {
+      display: none;
+      visibility: hidden;
+    }
+  }
+
+  .right {
+    @include box-sizing(border-box);
+    color: #fff;
+    float: right;
+    font-size: 12px;
+    font-style: italic;
+    font-weight: 300;
+    line-height: 16px;
+    margin: 10px 30px 0;
+    padding-top: 4px;
+    width: 230px;
+
+    @include break(800px) {
+      float: none;
+      margin: auto;
+      min-width: 300px;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    strong {
+      color: #fff;
+    }
+  }
+}

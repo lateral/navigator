@@ -1,0 +1,23 @@
+Medium, the new startup from the creators of Blogger and Twitter offers a great opportunity to actually raise some fundamental questions about how digital content on the web is architected and designed.
+
+I found dozens of fascinating articles and tips on User Experience and User Interface design written not simply for the sake of sharing something on the web but with a real purpose to teach something new.
+
+For this reason I started to develop a collection of the most interesting thoughts, tips and best practices conceived by an unyielding passion for beautiful design and experiences: Notes from an Digital Esthete.
+
+Here are a couple of the most useful articles I collected:
+
+How Users Really Perceive Interfaces: Psychological and Biological Approach to User Interfaces.
+
+The Design Concierge: Creating great designs by serving your guests.
+
+The Right Way to Ask Users for iOS Permissions: How Cluster dramatically increased iOS access conversion.
+
+What I Learned About Design at Squarespace: 3 Lessons from two years at a startup in New York.
+
+Improve the payment experience with animations: Behind the scenes of Stripe Checkout.
+
+The State of In-Car UX: No matter the price or the brand, the interfaces that adorn today’s vehicles are in a bad place.
+
+Debunking the UX myth. Over again: What are really the differences between a UI and a UX designer or how to forget vanity titles and use logic instead.
+
+Google UX design with heart: How Google builds features that make you go: “Of Course”

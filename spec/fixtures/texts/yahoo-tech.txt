@@ -1,0 +1,11 @@
+BlackBerry CEO John Chen, in a Yahoo interview with David Pogue, maintained that the BlackBerry network’s security model and encryption would have stood up against the attack on iCloud that saw the theft of personal photos from celebrities such as Jennifer Lawrence. Watch:
+
+Chen said it’s this security that makes the BlackBerry phones, and the BlackBerry data network, the best option for people concerned about privacy and security. As he points out, world leaders, including President Obama, use BlackBerry devices.
+
+On that topic, Chen pointed out that BlackBerry also makes low-level software (through QNX, a company it acquired) that runs on 50 million cars. He said the QNX automotive software was initially used for infotainment but over time has been getting close to the mechanics of cars, like collision avoidance and braking systems.
+
+Chen became CEO of BlackBerry in November 2013. He’s seen as a turnaround artist, credited with reigniting the growth of enterprise software company Sybase.
+
+He said the former CEO of BlackBerry “may have been in the company too long”:
+
+Without the “baggage” of the previous BlackBerry administration, he said, he’s more able to focus on working for BlackBerry’s shareholders. “I love phones,” Chen said. But, he added, “I equally like making money.”

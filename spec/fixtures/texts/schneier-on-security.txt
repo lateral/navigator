@@ -1,0 +1,15 @@
+Not Enough CISOs to Go Around
+
+This article is reporting that the demand for Chief Information Security Officers far exceeds supply:
+
+Sony and every other company that realizes the need for a strong, senior-level security officer are scrambling to find talent, said Kris Lovejoy, general manager of IBM's security service and former IBM chief security officer. CISOs are "almost impossible to find these days," she said. "It's a bit like musical chairs; there's a finite number of CISOs and they tend to go from job to job in similar industries."
+
+I'm not surprised, really. This is a tough job: never enough budget, and you're the one blamed when the inevitable attacks occur. And it's a tough skill set: enough technical ability to understand cybersecurity, and sufficient management skill to navigate senior management. I would never want a job like that in a million years.
+
+Here's a tip: if you want to make your CISO happy, here's her holiday wish list.
+
+"My first wish is for companies to thoroughly test software releases before release to customers...."
+
+Can we get that gift wrapped?
+
+Posted on December 11, 2014 at 6:31 AM • 40 Comments

@@ -1,0 +1,19 @@
+Every Thursday in Palo Alto, IDEO’s Digital Shop hosts an informal lunchtime presentation by someone who is using code to create something surprising, useful, or generally awesome. Colleagues from all around IDEO gather for a meal and leave with a week’s worth of ideas to chew on. For Labs, we’ve asked some recent speakers to highlight a quick insight or tool they’d like to share.
+
+Guest: Scott Murray
+
+ Specs: Assistant professor of design at the University of San Francisco, code artist, D3 expert, and contributor to the Processing language.
+
+Scott Murray is endlessly excited about using code as a tool for visual explorations of all kinds, from fine art to interactive data visualizations, but his students aren’t always quite so jazzed about the idea of programming. “They’re used to Photoshop and Illustrator, chopping up pictures and vectors,” he says. “Coding moves them into a totally different working environment.”
+
+It’s Murray’s job to pry open students’ minds to not only the languages of code but also to a new way of thinking—a developer’s approach to solving problems and building things. To this end, he’s helping to continue the development of Processing language, which is tailored specifically to the task of teaching designers and artists to code. “There are pedagogical tools embedded in the language itself,” he says, like the use of familiar terms such as “stroke” and “fill” as well as processes that help students think like developers when approaching the craft of design. “For me, design is all about systems—not creating an image, but a system that, when applied, results in an effective solution,” Murray says. “Processing, as a teaching tool, forces students to think beyond the output or image they want to create and describe the system they’re making and what it needs to do.”
+
+Processing gives designers new tools and expands their design thinking. It’s free, open source, and available to all at processing.org.
+
+To see some examples of what experts are doing with Processing, check out this exhibition site. (Murray particularly likes “Keyfleas” — above.)
+
+To get a sense of what beginners can do with the language, visit openprocessing.org and browse through the sketches.
+
+If you’re itching to get your hands dirty, go straight to this collection of short, prototypical online programs that explore the basics of programming with Processing.
+
+Check out the complete version of Scott Murray’s New Year greeting card pictured in the header to this post here.

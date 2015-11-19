@@ -1,0 +1,15 @@
+For the last few years, Razer has been producing some of the best high-end hardware for PC gamers: controllers, headsets, mice, keyboards, and of course, the awesome Blade gaming notebook PC.
+
+Now the company is delving further into couch-based entertainment with a new $100 “microconsole.” It relies on both a small set-top box, as well as a software platform for streaming PC games to the box, and thus your television.
+
+The tiny box is called Razer Forge TV, and it runs the Android TV platform on a quad-core chip. In many ways, it’s like any other set-top box—you can use it to watch movies and shows on YouTube, Hulu, Crackle, Google Play, and web videos via Google Cast. But you can also connect wireless controllers and use it to play games.
+
+To that end, Razer is releasing two new controllers in conjunction with the Forge TV box: an $80 console-style controller called the Serval, which is based on the company’s Sabertooth console controller. It’s meant to be paired with the Forge TV, but also comes with a clip for mounting your Android phone to the top so you can use it as a mobile controller.
+
+Also new is a $130 wireless keyboard/mouse combo that rests on your lap while you sit on the couch. This one is called the Turret, and it’s tuned for games: the mouse’s precision measures 3,500 dpi, and the controller is dual-wireless, so you can run it either as a Bluetooth device or over 2.4GHz Wi-Fi and use it with multiple systems. The mouse has a magnet inside, so it won’t fall off when you move your hands to the keyboard to type, or when you reach for your soda. There’s a little charging cradle that lets you stash the keyboard (vertically) and mouse next to your TV.
+
+Of course, the whole point is that you can use this mouse and keyboard on your couch. And it’s not just for typing in Hulu searches. The Forge TV will connect to the PC game launcher Razer Cortex and be able to stream just about any game from your PC—you know, that machine that lives in your bedroom that you already spend $2,000 on. Well now you can play all those games in your living room too. The requirements are not restrictive, as the streaming will work with a wide range of PC hardware, and any DirectX9 or later title. It works very much like the existing streaming platforms from Steam and Nvidia.
+
+The latency of Razer’s streaming platform (which uses a proprietary encoder) is so low, even at 1080p, that visual lag and controller lag are imperceptible. A couple of us from WIRED have had a hands-on demo, and even though the Cortex: Stream platform isn’t fully finished yet, we both agree it felt just like playing a native console game. The beta release of Razer Cortex: Stream is slated for the second quarter of 2015, and will be a free feature if you buy the Forge TV and Serval controller bundle.
+
+The Forge TV and the Serval are available at the beginning of this year, while the Turret keyboard/mouse controller will be available in the second quarter once the beta version of the streaming service comes online.

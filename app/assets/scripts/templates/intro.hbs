@@ -1,0 +1,48 @@
+<img src="/images/navigator-logo.png" alt="Lateral Navigator" id="navigator-logo">
+
+<p class="intro-message">Here you can <strong>generate a visual interface</strong> to interact with the data stored in your <a href="https://lateral.io/">Lateral API key</a>. Simply enter your key and a name for your navigator below:</p>
+
+<p class="confirmation-message"><span class="success">Navigator successfully created!</span><br/>Below is an overview with all the details. Make sure to keep a record of it!</p>
+
+<form>
+  <div class="errors"></div>
+  <div class="slider">
+    <div class="form">
+      <div class="wrapper">
+        <input type="text" id="key" placeholder="Your API Key">
+        <input type="text" id="name" placeholder="Name (will appear in the URL)">
+        <input type="checkbox" id="password_protected" name="method" value="password_protected"><label for="password_protected">Password protected</label>
+        <div class="authentication">
+          <input type="text" id="username" placeholder="Username">
+          <input type="password" disabled="disabled" id="password" placeholder="Password will be generated">
+        </div>
+
+        <a class="button" id="create">Create navigator</a>
+      </div>
+    </div>
+    <div class="confirmation">
+      <dl>
+        <dt class="url">URL:</dt><dd class="url"></dd>
+        <dt class="user">Username:</dt><dd class="user"></dd>
+        <dt class="pass">Password:</dt><dd class="pass"></dd>
+      </dl>
+    </div>
+  </div>
+</form>
+
+<div class="meta">
+  <p class="center">View an example navigator: <a href="#">with images</a> or <a href="#">without images</a></p>
+
+  <hr>
+
+  <div class="center">
+    <h3>Meta</h3>
+  </div>
+
+  <p>The following meta fields are available: <strong>image, title, date, author, url</strong></p>
+  <p>Visual example:</p>
+
+  <img src="/images/meta-preview.png" alt="Meta visual preview">
+
+  <p>Need help? Feel free to <a href="#">live chat</a> with us or <a href="mailto:hello@lateral.io">send us an email</a> at any time.</p>
+</div>

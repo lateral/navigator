@@ -1,0 +1,169 @@
+Posted by Mark Seaborn, sandbox builder and breaker, with contributions by Thomas Dullien, reverse engineer
+
+[This guest post continues Project Zero’s practice of promoting excellence in security research on the Project Zero blog]
+
+“Rowhammer” is a problem with some recent DRAM devices in which repeatedly accessing a row of memory can cause bit flips in adjacent rows. We tested a selection of laptops and found that a subset of them exhibited the problem. We built two working privilege escalation exploits that use this effect. One exploit uses rowhammer-induced bit flips to gain kernel privileges on x86-64 Linux when run as an unprivileged userland process. When run on a machine vulnerable to the rowhammer problem, the process was able to induce bit flips in page table entries (PTEs). It was able to use this to gain write access to its own page table, and hence gain read-write access to all of physical memory.
+
+We don’t know for sure how many machines are vulnerable to this attack, or how many existing vulnerable machines are fixable. Our exploit uses the x86 instruction to generate many accesses to the underlying DRAM, but other techniques might work on non-x86 systems too.
+
+We expect our PTE-based exploit could be made to work on other operating systems; it is not inherently Linux-specific. Causing bit flips in PTEs is just one avenue of exploitation; other avenues for exploiting bit flips can be practical too. Our other exploit demonstrates this by escaping from the Native Client sandbox.
+
+We learned about the rowhammer problem from Yoongu Kim et al’s paper, “Flipping Bits in Memory Without Accessing Them: An Experimental Study of DRAM Disturbance Errors” (Yoongu Kim, Ross Daly, Jeremie Kim, Chris Fallin, Ji Hye Lee, Donghyuk Lee, Chris Wilkerson, Konrad Lai, Onur Mutlu).
+
+They demonstrate that, by repeatedly accessing two “aggressor” memory locations within the process’s virtual address space, they can cause bit flips in a third, “victim” location. The victim location is potentially outside the virtual address space of the process — it is in a different DRAM row from the aggressor locations, and hence in a different 4k page (since rows are larger than 4k in modern systems).
+
+This works because DRAM cells have been getting smaller and closer together. As DRAM manufacturing scales down chip features to smaller physical dimensions, to fit more memory capacity onto a chip, it has become harder to prevent DRAM cells from interacting electrically with each other. As a result, accessing one location in memory can disturb neighbouring locations, causing charge to leak into or out of neighbouring cells. With enough accesses, this can change a cell’s value from 1 to 0 or vice versa.
+
+The paper explains that this tiny snippet of code can cause bit flips:
+
+Two ingredients are required for this routine to cause bit flips:
+
+How can we pick pairs of addresses that satisfy the “different row, same bank” requirements?
+
+One possibility is to use knowledge of how the CPU’s memory controller maps physical addresses to DRAM’s row, column and bank numbers, along with knowledge of either:
+
+Yoongu Kim et al take this approach. They pick Y = X + 8MByte based on knowledge of the physical address mapping used by the memory controllers in Intel and AMD’s CPUs.
+
+The CPU’s physical address mapping can be difficult to determine, though, and features such as and huge pages are not available everywhere. Furthermore, if our guesses about the address mapping are wrong, we might pick an offset that pessimises our chances of successful row hammering. (For example, Y = X + 8 kByte might always give addresses in different banks.)
+
+A simpler approach is to pick address pairs at random. We allocate a large block of memory (e.g. 1GB) and then pick random virtual addresses within that block. On a machine with 16 DRAM banks (as one of our test machines has: 2 DIMMs with 8 banks per DIMM), this gives us a 1/16 chance that the chosen addresses are in the same bank, which is quite high. (The chance of picking two addresses in the same row is negligible.)
+
+Furthermore, we can increase our chances of successful row hammering by modifying to hammer more addresses per loop iteration. We find we can hammer 4 or 8 addresses without slowing down the time per iteration.
+
+Another way to determine whether a pair of addresses has the “different row, same bank” property would be to time uncached accesses to those addresses using a fine-grained timer such as the instruction. The access time will be slower for pairs that satisfy this property than those that don’t.
+
+We have found that we can increase the chances of getting bit flips in row N by row-hammering both of its neighbours (rows N-1 and N+1), rather than by hammering one neighbour and a more-distant row. We dub this “double-sided hammering”.
+
+For many machines, double-sided hammering is the only way of producing bit flips in reasonable time. For machines where random selection is already sufficient to cause bit flips, double-sided hammering can lead to a vastly increased number of bits flipped. We have observed 25+ bits flipped in one row on one particularly fragile machine.
+
+Performing double-sided hammering is made more complicated by the underlying memory geometry. It requires the attacker to know or guess what the offset will be, in physical address space, between two rows that are in the same bank and are adjacent. Let’s call this the “row offset”.
+
+From our testing, we were able to naively extrapolate that the row offset for laptop Model #4 (see the table below) is 256k. We did this by observing the likelihood of bit flips relative to the distance the selected physical memory pages had from the victim page. This likelihood was maximized when we hammered the locations 256k below and above a given target row.
+
+This “256k target memory area, 256k victim memory area, 256k target memory area” setup has shown itself to be quite effective on other laptops by the same vendor. It is likely that this setup needs to be tweaked for other vendors.
+
+This 256k row offset could probably be explained as being a product of the row size (number of columns), number of banks, number of channels, etc., of the DRAM in this machine, though this requires further knowledge of how the hardware maps physical addresses to row and bank numbers.
+
+Doing double-sided hammering does require that we can pick physically-contiguous pages (e.g. via or huge pages).
+
+Yoongu Kim et al say that “With some engineering effort, we believe we can develop Code 1a into a disturbance attack that … hijacks control of the system”, but say that they leave this research task for the future. We took on this task!
+
+We found various machines that exhibit bit flips (see the experimental results below). Having done that, we wrote two exploits:
+
+Native Client is a sandboxing system that allows running a subset of x86-64 machine code (among other architectures) inside a sandbox. Before running an x86-64 executable, NaCl uses a validator to check that its code conforms to a subset of x86 instructions that NaCl deems to be safe.
+
+However, NaCl assumes that the hardware behaves correctly. It assumes that memory locations don’t change without being written to! NaCl’s approach of validating machine code is particularly vulnerable to bit flips, because:
+
+Our exploit targets NaCl’s instruction sequence for sandboxed indirect jumps, which looks like this:
+
+The exploit works by triggering bit flips in that code sequence. It knows how to exploit 13% of the possible bit flips. Currently it only handles bit flips that modify register numbers. (With more work, it could handle more exploitable cases, such as opcode changes.) For example, if a bit flip occurs in bit 0 of the register number in “ ”, this morphs to “ ”, which is easily exploitable — since is unconstrained, this allows jumping to any address. Normally NaCl only allows indirect jumps to 32-byte-aligned addresses (and it ensures that instructions do not cross 32-byte bundle boundaries). Once a program can jump to an unaligned address, it can escape the sandbox, because it is possible to hide unsafe x86 instructions inside safe ones. For example:
+
+Our NaCl exploit does the following:
+
+We have mitigated this by changing NaCl’s x86 validator to disallow the instruction (tracked by CVE-2015-0565). However, there might be other ways to cause row hammering besides (see below).
+
+Prior to disallowing in NaCl, it may have been possible to chain this NaCl exploit together with the kernel privilege escalation below so that a NaCl app in the Chrome Web Store app could gain kernel privileges, using just one underlying hardware bug for the whole chain. To our knowledge there was no such app in the Chrome Web Store. PNaCl — which is available on the open web — has an extra layer of protection because an attacker would have had to find an exploit in the PNaCl translator before being able to emit a instruction.
+
+Our kernel privilege escalation works by using row hammering to induce a bit flip in a page table entry (PTE) that causes the PTE to point to a physical page containing a page table of the attacking process. This gives the attacking process read-write access to one of its own page tables, and hence to all of physical memory.
+
+There are two things that help ensure that the bit flip has a high probability of being exploitable:
+
+There are two caveats:
+
+The first step is to search for aggressor/victim addresses that produce useful bit flips:
+
+In preparation for spraying page tables, we create a file in (a shared memory segment) that we will repeatedly. (See later for how we determine its size.) We write a marker value at the start of each 4k page in the file so that we can easily identify these pages later, when checking for PTE changes.
+
+Note that we don’t want these data pages to be allocated from sequential physical addresses, because then flips in the lower bits of physical page numbers would tend to be unexploitable: A PTE pointing to one data page would likely change to pointing to another data page.
+
+To avoid that problem, we first deliberately fragment physical memory so that the kernel’s allocations from physical memory are randomised:
+
+We are now ready to spray memory with page tables. To do this, we the data file repeatedly:
+
+Having finished spraying, it’s hammer time. We hammer the aggressor addresses. Hopefully this induces the bit flip in the victim page. We can’t observe the bit flip directly (unlike in the NaCl exploit).
+
+Now we can check whether PTEs changed exploitably. We scan the large region we mapped to see whether any of the PTEs now point to pages other than our data file. Again, for speed, we only need to check the Nth page within each 2MB chunk. We can check for the marker value we wrote earlier. If we find no marker mismatches, our attempt failed (and we could retry).
+
+If we find a marker mismatch, then we have gained illicit access to a physical page. Hopefully this is one of the page tables for our address space. If we want to be careful, we can verify whether this page looks like one of our page tables. The Nth 64-bit field should look like a PTE (certain bits will be set or unset) and the rest should be zero. If not, our attempt failed (and we could retry).
+
+At this point, we have write access to a page table, probably our own. However, we don’t yet know which virtual address this is the page table for. We can determine that as follows:
+
+We now have write access to one of our process’s page tables. By modifying the page table, we can get access to any page in physical memory. We now have many options for how to exploit that, varying in portability, convenience and speed. The portable options work without requiring knowledge of kernel data structures. Faster options work in O(1) time, whereas slower options might require scanning all of physical memory to locate a data structure.
+
+Our proof-of-concept exploits use the x86 instruction, because it’s the easiest way to force memory accesses to be sent to the underlying DRAM and thus cause row hammering.
+
+The fact that is usable from unprivileged code is surprising, because the number of legitimate uses for it outside of a kernel or device driver is probably very small. For comparison, ARM doesn’t have an unprivileged cache-flush instruction. (ARM Linux does have a syscall, used by JITs, for synchronising instruction and data caches. On x86, the i-cache and d-cache are synchronised automatically, so isn’t needed for this purpose.)
+
+We have changed NaCl’s x86 validator to disallow . Unfortunately, kernels can’t disable for normal userland code. Currently, can’t be intercepted or disabled, even using VMX (x86 virtualisation). (For example, can be intercepted without VMX support. VMX allows intercepting more instructions, including and , but not .) There might be a case for changing the x86 architecture to allow to be intercepted. From a security engineering point of view, removing unnecessary attack surface is good practice.
+
+However, there might be ways of causing row hammering without , which might work on non-x86 architectures too:
+
+We tested a selection of x86 laptops that were readily available to us (all with non-ECC memory) using with the “random address selection” approach above. We found that a large subset of these machines exhibited rowhammer-induced bit flips. The results are shown in the table below.
+
+The testing was done using the program available here: 
+
+https://github.com/google/rowhammer-test
+
+As a result, we have decided to anonymize our results below.
+
+All of the machines tested used DDR3 DRAM. It was not possible to identify the age of the DRAM in all cases.
+
+We also tested some desktop machines, but did not see any bit flips on those. That could be because they were all relatively high-end machines with ECC memory. The ECC could be hiding bit flips.
+
+Users may wish to test their own machines using the tool above. If a machine produces bit flips during testing, users may wish to adjust security and trust decisions regarding the machine accordingly.
+
+While an absence of bit flips during testing on a given machine does not automatically imply safety, it does provide some baseline assurance that causing bit flips is at least difficult on that machine.
+
+Some schemes have been proposed for preventing rowhammer-induced bit flips by changing DRAM, memory controllers, or both.
+
+A system could ensure that, within a given refresh period, it does not activate any given row too many times without also ensuring that neighbouring rows are refreshed. Yoongu Kim et al discuss this in their paper. They refer to proposals “to maintain an array of counters” (either in the memory controller or in DRAM) for counting activations. The paper proposes an alternative, probabilistic scheme called “PARA”, which is stateless and thus does not require maintaining counters.
+
+There are signs that some newer hardware implements mitigations:
+
+Some of the newer models of laptops that we tested did not exhibit bit flips. A possible explanation is that these laptops implement some rowhammer mitigations.
+
+Have hardware vendors silently rolled out any BIOS updates to mitigate the rowhammer problem by changing how the BIOS configures the CPU’s memory controller?
+
+As an experiment, we measured the time required to cause a bit flip via double-sided hammering on one Model #4 laptop. This ran in the “less than 5 minutes” range. Then we updated the laptop’s BIOS to the latest version and re-ran the hammering test.
+
+We initially thought this BIOS update had fixed the issue. However, after almost 40 minutes of sequentially hammering memory, some locations exhibited bit flips.
+
+We conjecture that the BIOS update increased the DRAM refresh rate, making it harder — but not impossible — to cause enough disturbance between DRAM refresh cycles. This fits with data from Yoongu Kim et al’s paper (see Figure 4) which shows that, for some DRAM modules, a refresh period of 32ms is not short enough to reduce the error rate to zero.
+
+We have not done a wider test of BIOS updates on other laptops.
+
+It might be possible to detect row hammering attempts using CPUs’ performance counters. In order to hammer an area of DRAM effectively, an attacker must generate a large number of accesses to the underlying DRAM in a short amount of time. Whether this is done using or using only normal memory accesses, it will generate a large number of cache misses.
+
+Modern CPUs provide mechanisms that allow monitoring of cache misses for purposes of performance analysis. These mechanisms can be repurposed by a defender to monitor the system for sudden bursts of cache misses, as truly cache-pessimal access patterns appear to be rare in typical laptop and desktop workloads. By measuring “time elapsed per N cache misses” and monitoring for abnormal changes, we have been able to detect aggressive hammering even on systems that were running under a heavy load (a multi-core Linux kernel compile) during the attack. Unfortunately, while detection seems possible for aggressive hammering, it is unclear what to do in response, and unclear how common false positives will be.
+
+While it is likely that attackers can adapt their attacks to evade such monitoring, this would increase the required engineering effort, making this monitoring somewhat comparable to an intrusion detection system.
+
+The computing industry (of which Google is a part) is accustomed to security bugs in software. It has developed an understanding of the importance of public discussion and disclosure of security issues. Through these public discussions, it has developed a better understanding of when bugs have security implications. Though the industry is less accustomed to hardware bugs, hardware security can benefit from the same processes of public discussion and disclosure.
+
+With this in mind, we can draw two lessons:
+
+We explore these two points in more detail below.
+
+Vendors may have considered rowhammer to be only a reliability issue, and assumed that it is too difficult to exploit. None of the public material we have seen on rowhammer (except for the paper by Yoongu Kim et al) discusses security implications.
+
+However, many bugs that appear to be difficult to exploit have turned out to be exploitable. These bugs might initially appear to be “only” reliability issues, but are really security issues.
+
+An extreme example of a hard-to-exploit bug is described in a recent Project Zero blog post (see “The poisoned NUL byte, 2014 edition”). This shows how an off-by-one NUL byte overwrite could be exploited to gain root privileges from a normal user account.
+
+To many security researchers, especially those who practice writing proof-of-concept exploits, it is well known that bit flips can be exploitable. For example, a 2003 paper explains how to use random bit flips to escape from a Java VM. (See “Using Memory Errors to Attack a Virtual Machine” by Sudhakar Govindavajhala and Andrew W. Appel.)
+
+Furthermore, as we have shown, rowhammer-induced bit flips are sometimes more easily exploitable than random bit flips, because they are repeatable.
+
+We encourage vendors to publicly release information about past, current and future devices so that security researchers, and the public at large, can evaluate them with reference to the rowhammer problem.
+
+The following information would be helpful:
+
+At the time of writing, we weren't able to find publicly available information on the above in most cases.
+
+If more of this information were available, it would be easier to assess which machines are vulnerable. It would be easier to evaluate a negative test result, i.e. the absence of bit flips during testing. We could explain that a negative result for a machine is because (for example) its DRAM implements mitigations internally, or because its DRAM isn't susceptible at the physical level (because it was manufactured using an older process), or because its BIOS enables 2x refresh. Such an explanation would give us more confidence that the negative test result occurred not because our end-to-end testing was insufficient in some way, but because the machine is genuinely not vulnerable to rowhammer.
+
+We expect researchers will be interested in evaluating the details of rowhammer mitigation algorithms. For example, does a device count row activations (as the MAC scheme suggests they should), or does it use probabilistic methods like PARA? Will the mitigations be effective against double-sided row hammering as well as single-sided hammering? Could there be any problems if both the DRAM device and memory controller independently implement their own rowhammer mitigations?
+
+We have shown two ways in which the DRAM rowhammer problem can be exploited to escalate privileges. History has shown that issues that are thought to be “only” reliability issues often have significant security implications, and the rowhammer problem is a good example of this. Many layers of software security rest on the assumption the contents of memory locations don't change unless the locations are written to.
+
+The public discussion of software flaws and their exploitation has greatly expanded our industry’s understanding of computer security in past decades, and responsible software vendors advise users when their software is vulnerable and provide updates. Though the industry is less accustomed to hardware bugs than to software bugs, we would like to encourage hardware vendors to take the same approach: thoroughly analyse the security impact of “reliability” issues, provide explanations of impact, offer mitigation strategies and — when possible — supply firmware or BIOS updates. Such discussion will lead to more secure hardware, which will benefit all users.
