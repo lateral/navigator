@@ -30,7 +30,6 @@ class API < Grape::API
     requires :name, type: String, allow_blank: false
     requires :password_protected, type: Boolean, allow_blank: false
     optional :username, type: String
-    optional :password, type: String
   end
   post '/navigators' do
     error! 'username is missing', 400 if params[:username].blank? && params[:password_protected] == true
