@@ -18,7 +18,7 @@ RSpec.describe 'Home page' do
   scenario 'gets past auth if password protected', js: true do
     creds = FactoryGirl.create(:credentials, key: 'test', name: 'Max', password_protected: true,
                                              username: 'max', password: 'password')
-    basic_auth(creds.username, creds.password)
+    page.driver.basic_authorize creds.username, creds.password
     visit "/#{creds.url_hash}/#{creds.slug}"
     wait_for_ajax
     assert_equal 200, page.status_code
