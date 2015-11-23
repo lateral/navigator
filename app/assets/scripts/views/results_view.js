@@ -61,6 +61,9 @@ module.exports = Backbone.Marionette.CompositeView.extend({
   },
 
   onRender: function() {
+    var showSort = (typeof this.model.get('date') !== 'undefined');
+    this.$('.controls').toggle(showSort);
+    this.$('.toggle-details').toggleClass('controls-visible', showSort);
     this.$('.controls a[data-sort="' + router.settings.sort.get() + '"]').addClass('active');
     this.$('.results').toggleClass('detailed-view', router.settings.details.get() == 'show');
   }
