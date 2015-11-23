@@ -2,24 +2,24 @@ header {
   position: relative;
   text-align: center;
 
-  @include break(800px) {
-    padding: 0 60px;
-  }
+  // @include break(800px) {
+  //   padding: 0 60px;
+  // }
 
   h1 {
-    padding-top: 38px;
+    padding-top: 50px;
     text-transform: uppercase;
 
     @include break(800px) {
-      padding-top: 28px;
+      padding-top: 88px;
     }
   }
 
   h2 {
     margin: 25px auto 50px;
 
-    @include break(800px) {
-      max-width: 240px;
+    @include break(640px) {
+      max-width: 250px;
       margin: 25px auto 40px;
     }
   }

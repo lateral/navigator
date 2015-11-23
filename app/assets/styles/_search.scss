@@ -6,13 +6,10 @@
   position: absolute;
   right: 20px;
   top: 20px;
-  width: 150px;
+  width: 64px;
 
   @include break(800px) {
-    // top: -30px;
-    margin-right: -65px;
-    right: 50%;
-    width: 130px;
+    width: 180px;
   }
 
   input {
@@ -20,14 +17,10 @@
     border: 1px solid #bbb;
     color: #111;
     font-size: 14px;
-    height: 30px;
+    height: 34px;
     line-height: 30px;
     padding: 0 10px;
-    width: 100%;
-
-    @include break(800px) {
-      text-align: center;
-    }
+    float: right;
 
     @include placeholder {
       color: #9d9d9d;
@@ -35,6 +28,12 @@
 
     &:focus {
       outline: 0;
+      width: 150px;
+      border: 1px solid #A5A5A5;
+
+      @include break(800px) {
+        width: 180px;
+      }
     }
   }
 

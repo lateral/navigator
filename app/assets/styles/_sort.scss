@@ -9,7 +9,7 @@
   font-weight: 600;
   text-transform: uppercase;
 
-  @include break(800px) {
+  @include break(640px) {
     right: 4%;
   }
 
@@ -31,6 +31,22 @@
   }
 }
 
+.controls {
+  @include break(640px) {
+    position: relative;
+    text-align: center;
+    right: 0;
+    margin-bottom: 10px;
+  }
+}
+
+.toggle-details {
+
+  @include break(640px) {
+    display: none;
+  }
+}
+
 .toggle-details a {
   padding: 0;
 }
@@ -38,7 +54,7 @@
 .toggle-details.controls-visible {
   right: 175px;
 
-  @include break(800px) {
+  @include break(640px) {
     right: 4%;
     margin-right: 0;
     top: -25px;
