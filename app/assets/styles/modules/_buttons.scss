@@ -8,14 +8,18 @@ a.button {
   border: 0;
   color: #fff;
   cursor: pointer;
-  font-size: em(18px);
-  height: 36px;
+  font-size: 14px;
+  height: 34px;
   line-height: 36px;
   padding: 0 12px;
   font-weight: 600;
+  display: inline-block;
+  text-decoration: none;
 
   &:hover {
     background-color: $blue-hover;
+    opacity: 1;
+    text-decoration: none;
   }
 
   &.red {
@@ -57,11 +61,18 @@ a.button {
   }
 }
 
-a.button {
-  display: inline-block;
-  text-decoration: none;
+.form .wrapper {
 
-  &:hover {
-    text-decoration: none;
+  a.button {
+    font-size: 16px;
   }
 }
+
+// a.button {
+//   display: inline-block;
+//   text-decoration: none;
+
+//   &:hover {
+//     text-decoration: none;
+//   }
+// }
