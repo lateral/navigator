@@ -11,7 +11,6 @@ module.exports = Backbone.Model.extend({
     delete response.meta;
 
     if (response.date && response.date != '') {
-      console.log(response.date);
       var options = {
         preferredOrder: {
           '/': 'DMY',

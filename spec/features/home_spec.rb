@@ -12,7 +12,7 @@ RSpec.describe 'Home page' do
     visit "/#{@creds.url_hash}/#{@creds.slug}"
     wait_for_ajax
     assert_equal 200, page.status_code
-    expect(page).to have_content 'LATERAL RECOMMENDATION NAVIGATOR'
+    expect(page).to have_content 'MAX NAVIGATOR'
   end
 
   scenario 'gets past auth if password protected', js: true do
@@ -22,7 +22,7 @@ RSpec.describe 'Home page' do
     visit "/#{creds.url_hash}/#{creds.slug}"
     wait_for_ajax
     assert_equal 200, page.status_code
-    expect(page).to have_content 'LATERAL RECOMMENDATION NAVIGATOR'
+    expect(page).to have_content 'MAX NAVIGATOR'
   end
 
   scenario 'renders five results', js: true do
