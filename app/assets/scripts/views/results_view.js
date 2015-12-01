@@ -28,6 +28,7 @@ module.exports = Backbone.Marionette.CompositeView.extend({
   initialize: function(options) {
     this.listenTo(this.model, 'change', this.render, this);
     this.sortCollection();
+    window.scrollTo(0, 0);
   },
 
   detailsDisable: function(event) {
