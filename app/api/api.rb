@@ -99,7 +99,7 @@ class API < Grape::API
     pages = request.headers[:total].to_i / 25
 
     # Request and return a random page
-    get_json '/documents', page: rand(1..pages)
+    get_json "/documents?page=#{rand(1..pages)}"
   end
 
   # Catch 404 errors
