@@ -38,7 +38,7 @@ module.exports = Backbone.View.extend({
   },
 
   render: function() {
-    $(this.el).html(this.template({ home_url: this.homeUrl }));
+    $(this.el).html(this.template({ home_url: this.homeUrl, title: window.credsTitle }));
 
     this.$('h2').hide();
     if (this.options.home) { this.$('#home').show(); }

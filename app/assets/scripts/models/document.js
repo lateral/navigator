@@ -13,8 +13,16 @@ module.exports = Backbone.Model.extend({
     var response = _.extend(response.meta, response);
     delete response.meta;
 
-    if (response.date) {
-      var format = parseFormat(response.date);
+    if (response.date && response.date != '') {
+      console.log(response.date);
+      var options = {
+        preferredOrder: {
+          '/': 'DMY',
+          '.': 'DMY',
+          '-': 'YMD'
+        }
+      };
+      var format = parseFormat(response.date, options);
       response.dateObj = moment(response.date, format);
       response.date = response.dateObj.format('MMMM Do, YYYY');
     }

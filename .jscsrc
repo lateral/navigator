@@ -5,6 +5,6 @@
   "validateLineBreaks": "LF",
   "validateIndentation": 2,
   "maximumLineLength": 100,
-  "excludeFiles": ["build/**", "node_modules/**"],
+  "excludeFiles": ["public/**", "node_modules/**"],
   "esprima": "esprima-fb"
 }

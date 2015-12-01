@@ -33,6 +33,11 @@
     var authorizationHeader = '<%= @creds.basic_auth %>';
   </script>
 <% end %>
+<% if @creds %>
+  <script>
+    var credsTitle = '<%= @creds.name %>';
+  </script>
+<% end %>
   <script src="/app.js"></script>
   <%= javascript_tag 'jQuery.fx.off = true;' if Rails.env.test? %>
 </body>
