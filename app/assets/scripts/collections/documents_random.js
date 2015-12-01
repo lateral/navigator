@@ -1,6 +1,3 @@
-var Backbone = require('backbone');
-var _ = require('underscore');
-
 module.exports = Backbone.Collection.extend({
   url: function() {
     return '/api/' + window.hash + '/' + window.slug + '/random-documents';

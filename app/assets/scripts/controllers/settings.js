@@ -1,7 +1,4 @@
-var $ = require('jquery');
-var Backbone = require('backbone');
 var store = require('store');
-Backbone.Marionette = require('backbone.marionette');
 
 module.exports = Backbone.Marionette.Controller.extend({
   initialize: function(app) {

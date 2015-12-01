@@ -1,9 +1,11 @@
 <a href="{{url}}" class="route" data-id="{{id}}">
   {{#if image}}<div class="image" style="background-image:url('{{image}}')"></div>{{/if}}
   {{#if title}}<h3>{{title}}</h3>{{/if}}
-  <p class="meta">
-    {{#if date}}{{date}}{{/if}}
-    {{#if author}}by <span class="author">{{author}}</span>{{/if}}
-  </p>
+  {{#if isMeta}}
+    <p class="meta">
+      {{#if date}}{{date}}{{/if}}
+      {{#if author}}by <span class="author">{{author}}</span>{{/if}}
+    </p>
+  {{/if}}
   <p>{{text}}</p>
 </a>

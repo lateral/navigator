@@ -1,6 +1,3 @@
-var $ = require('jquery');
-var Backbone = require('backbone');
-var _ = require('underscore');
 var moment  = require('moment');
 var parseFormat = require('moment-parseformat');
 

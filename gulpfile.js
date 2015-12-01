@@ -7,7 +7,8 @@ var gulp = require('gulp');
 var del = require('del');
 var $ = require('gulp-load-plugins')();
 var browserSync = require('browser-sync');
-var webpack = require('webpack-stream');
+var webpack = require('webpack');
+var webpackStream = require('webpack-stream');
 var stripAnsi = require('strip-ansi');
 
 // Minimize and optimize during a build?
@@ -45,9 +46,19 @@ gulp.task('clean', function(cb) { del([target + '/**/*'], cb); });
 gulp.task('bundle', function(cb) {
   return gulp.src(paths.main)
     .pipe($.plumber({ errorHandler: onError }))
-    .pipe(webpack({
+    .pipe(webpackStream({
       output: { filename: 'app.js' },
       module: { loaders: [{ test: /\.hbs$/, loader: 'handlebars-loader' }] },
+      plugins: [
+        new webpack.ProvidePlugin({
+          $: 'jquery',
+          jQuery: 'jquery',
+          _: 'underscore',
+          Backbone: 'backbone',
+          'Backbone.Marionette': 'backbone.marionette',
+          Handlebars: 'handlebars'
+        })
+      ],
       debug: !!RELEASE
     }))
     .pipe($.if(RELEASE, $.uglify()))

@@ -1,8 +1,10 @@
 {{#if image}}<div class="image" style="background-image:url('{{image}}')"></div>{{/if}}
 {{#if title}}<h3>{{title}}</h3>{{/if}}
-<p class="meta">
-  {{#if date}}{{date}}{{/if}}
-  {{#if author}}by <span class="author">{{author}}</span>{{/if}}
-</p>
+{{#if isMeta}}
+  <p class="meta">
+    {{#if date}}{{date}}{{/if}}
+    {{#if author}}by <span class="author">{{author}}</span>{{/if}}
+  </p>
+{{/if}}
 <p>{{text}}</p>
 {{#if url}}<div class="link"><a href="{{url}}" target="_blank">Read article</a></div>{{/if}}

@@ -1,6 +1,3 @@
-var $ = require('jquery');
-var _ = require('underscore');
-var Backbone = require('backbone');
 var SearchCollection = require('../collections/documents_search');
 var SearchView = require('../views/search_view');
 

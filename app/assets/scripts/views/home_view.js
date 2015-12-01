@@ -1,13 +1,10 @@
-var $ = require('jquery');
-var Backbone = require('backbone');
-Backbone.Marionette = require('backbone.marionette');
-
 var ResultView = Backbone.Marionette.ItemView.extend({
   tagName: 'li',
   className: 'result',
   template: require('../templates/_document_home.hbs'),
 
   initialize: function() {
+    this.model.set('isMeta', this.model.get('date') || this.model.get('author'));
     this.model.set('url', '/' + window.hash + '/' + window.slug + '/results/' + this.model.get('id'));
   }
 });

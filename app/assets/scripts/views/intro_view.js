@@ -1,8 +1,3 @@
-var $ = require('jquery');
-var Backbone = require('backbone');
-var _ = require('underscore');
-// var Story = require('../models/story');
-
 String.prototype.capitalizeFirstLetter = function() {
   return this.charAt(0).toUpperCase() + this.slice(1);
 }

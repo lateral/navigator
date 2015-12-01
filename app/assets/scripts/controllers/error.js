@@ -1,7 +1,4 @@
-var $ = require('jquery');
-var Backbone = require('backbone');
 var ErrorView = require('../views/error_view');
-Backbone.Marionette = require('backbone.marionette');
 
 module.exports = Backbone.Marionette.Controller.extend({
   initialize: function(app) {

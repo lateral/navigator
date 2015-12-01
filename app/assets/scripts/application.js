@@ -1,6 +1,3 @@
-var $ = require('jquery');
-var Backbone = require('backbone');
-Backbone.Marionette = require('backbone.marionette');
 var Router = require('./routers/root_router');
 
 // Standard Google Universal Analytics code

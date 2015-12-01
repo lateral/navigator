@@ -1,6 +1,3 @@
-var $ = require('jquery');
-var _ = require('underscore');
-var Backbone = require('backbone');
 var Document = require('../models/document');
 
 module.exports = Backbone.Collection.extend({

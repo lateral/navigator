@@ -1,7 +1,3 @@
-var $ = require('jquery');
-var Backbone = require('backbone');
-var _ = require('underscore');
-
 var IntroView = require('../views/intro_view');
 var HomeView = require('../views/home_view');
 var ResultsView = require('../views/results_view');

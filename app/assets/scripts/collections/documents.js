@@ -1,6 +1,4 @@
-var Backbone = require('backbone');
 var PageableCollection = require('backbone.paginator');
-var _ = require('underscore');
 
 module.exports = Backbone.Collection.extend({
   url: function() {

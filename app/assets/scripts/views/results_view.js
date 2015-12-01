@@ -1,12 +1,9 @@
-var $ = require('jquery');
-var Backbone = require('backbone');
-Backbone.Marionette = require('backbone.marionette');
-
 var ResultView = Backbone.Marionette.ItemView.extend({
   tagName: 'li',
   template: require('../templates/_result.hbs'),
 
   initialize: function() {
+    this.model.set('isMeta', this.model.get('date') || this.model.get('author'));
     this.model.set('recommendations_url', '/' + window.hash + '/' + window.slug + '/results/' + this.model.get('id'));
   },
 
@@ -61,6 +58,7 @@ module.exports = Backbone.Marionette.CompositeView.extend({
   },
 
   onRender: function() {
+    this.model.set('isMeta', this.model.get('date') || this.model.get('author'));
     var showSort = (typeof this.model.get('date') !== 'undefined');
     this.$('.controls').toggle(showSort);
     this.$('.toggle-details').toggleClass('controls-visible', showSort);
