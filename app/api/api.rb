@@ -93,13 +93,7 @@ class API < Grape::API
   end
   get '/:hash/:slug/random-documents' do
     authorise!
-
-    # Get one document to access the `total` header and calculate the number of pages with it
-    request = get '/documents', per_page: 1
-    pages = request.headers[:total].to_i / 25
-
-    # Request and return a random page
-    get_json "/documents?page=#{rand(1..pages)}"
+    get_json '/documents?order=random'
   end
 
   # Catch 404 errors
