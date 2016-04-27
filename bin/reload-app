@@ -4,7 +4,7 @@
 # get dependencies, migrations and to restart the app
 
 HOME=/home/ubuntu
-APP_DIR=$HOME/app
+APP_DIR=$HOME/navigator
 
 # Init rbenv
 if [ -d $HOME/.rbenv ]; then
