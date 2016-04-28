@@ -5,6 +5,7 @@ gem 'sqlite3'
 
 gem 'grape'
 gem 'hashie-forbidden_attributes'
+gem 'newrelic_rpm'
 gem 'oj'
 gem 'oj_mimic_json'
 gem 'rest-client'
