@@ -1,1 +1,1 @@
-API_URL = 'https://api.lateral.io'
+API_URL = 'https://api-v4.lateral.io'
