@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 
-gem 'rails', '4.2.3'
-gem 'sqlite3'
+gem 'rails', '4.2.8'
+gem 'sqlite3', '~> 1.3.13'
 
 gem 'grape'
 gem 'hashie-forbidden_attributes'
@@ -9,6 +9,8 @@ gem 'newrelic_rpm'
 gem 'oj'
 gem 'oj_mimic_json'
 gem 'rest-client'
+gem 'puma'
+gem 'tzinfo-data'
 
 group :development do
   gem 'awesome_print'
